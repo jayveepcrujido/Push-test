@@ -39,19 +39,19 @@ def main():
         print("1. Add Item")
 
         try:
-                choice = input("Choose an option: ")
+            choice = input("Choose an option: ")
 
-                if choice == "1":
-                    item = input("Enter item name: ").lower()
-                    if item == "":
-                        print("\nPlease enter the Fruit name.")
+            if choice == "1":
+                item = input("Enter item name: ").lower()
+                if item == "":
+                    print("\nPlease enter the Fruit name.")
+                else:
+                    quantity = int(input("Enter quantity: "))
+                    if manager.add_item(item, quantity):
+                        print(f"\nAdded {quantity} of {item}.")
                     else:
-                        quantity = int(input("Enter quantity: "))
-                        if manager.add_item(item, quantity):
-                            print(f"\nAdded {quantity} of {item}.")
-                        else:
-                            print("\nInvalid quantity. Item not added.")
-                            
+                        print("\nInvalid quantity. Item not added.")
+
         except ValueError as ve:
             print(f"\nInput error: {ve}")
         except Exception as e:
